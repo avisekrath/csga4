@@ -19,15 +19,44 @@ GA4 Admin Tool streamlines GA4 data exploration and analysis, reducing investiga
 
 ### Prerequisites
 
-- Go 1.21+ (for building from source)
 - Google Analytics 4 access with appropriate permissions
 - OAuth2 client credentials (Google Cloud Console)
 
-### Build from Source
+### Quick Install (Recommended)
+
+Install with a single command (macOS and Linux):
 
 ```bash
-git clone <repository-url>
-cd ga4admin
+curl -sf https://raw.githubusercontent.com/avisekrath/csga4/main/install.sh | sh
+```
+
+### Manual Download
+
+Download the appropriate binary for your platform:
+
+```bash
+# macOS (Intel)
+curl -L https://github.com/avisekrath/csga4/releases/latest/download/ga4admin-darwin-amd64 -o ga4admin
+chmod +x ga4admin
+
+# macOS (Apple Silicon)  
+curl -L https://github.com/avisekrath/csga4/releases/latest/download/ga4admin-darwin-arm64 -o ga4admin
+chmod +x ga4admin
+
+# Linux (x86_64)
+curl -L https://github.com/avisekrath/csga4/releases/latest/download/ga4admin-linux-amd64 -o ga4admin
+chmod +x ga4admin
+
+# Linux (ARM64)
+curl -L https://github.com/avisekrath/csga4/releases/latest/download/ga4admin-linux-arm64 -o ga4admin  
+chmod +x ga4admin
+```
+
+### Build from Source (Developers)
+
+```bash
+git clone https://github.com/avisekrath/csga4.git
+cd csga4
 go mod tidy
 go build -o ga4admin cmd/ga4admin/main.go
 ```
@@ -35,8 +64,8 @@ go build -o ga4admin cmd/ga4admin/main.go
 ### Verify Installation
 
 ```bash
-./ga4admin --help
-./ga4admin config --help
+ga4admin --help
+ga4admin --version
 ```
 
 ## Quick Start
