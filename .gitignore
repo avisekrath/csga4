@@ -1,0 +1,63 @@
+# Binaries (executable files, not directories)
+/ga4admin
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool
+*.out
+
+# Go workspace file
+go.work
+go.work.sum
+
+# Dependency directories (remove the comment below to include it)
+vendor/
+
+# Go module download cache
+# go/pkg/mod/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Application data
+data/presets/*.yaml
+data/cache/*.db
+data/exports/*
+
+# But keep directory structure
+!data/presets/.gitkeep
+!data/cache/.gitkeep  
+!data/exports/.gitkeep
+
+# Logs
+*.log
+debug.log
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+
+# Claude documentation (internal development files)
+CLAUDE.md
+DESIGN.md
+PROJECT.md
