@@ -43,6 +43,15 @@ data/presets/*.yaml
 data/cache/*.db
 data/exports/*
 
+# Environment and credential files
+.env
+.env.*
+*.env
+config.yaml
+credentials.json
+auth.json
+tokens.json
+
 # But keep directory structure
 !data/presets/.gitkeep
 !data/cache/.gitkeep  
