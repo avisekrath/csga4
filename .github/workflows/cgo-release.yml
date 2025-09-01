@@ -29,7 +29,7 @@ jobs:
         sudo apt-get install -y gcc-aarch64-linux-gnu
         CGO_ENABLED=1 GOOS=linux GOARCH=arm64 CC=aarch64-linux-gnu-gcc go build -o ga4admin-linux-arm64 ./cmd/ga4admin/main.go
     - name: Upload Linux artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: linux-binaries
         path: |
@@ -49,7 +49,7 @@ jobs:
         CGO_ENABLED=1 GOOS=darwin GOARCH=amd64 go build -o ga4admin-darwin-amd64 ./cmd/ga4admin/main.go
         CGO_ENABLED=1 GOOS=darwin GOARCH=arm64 go build -o ga4admin-darwin-arm64 ./cmd/ga4admin/main.go
     - name: Upload macOS artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: macos-binaries
         path: |
@@ -61,11 +61,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Download Linux binaries
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: linux-binaries
     - name: Download macOS binaries
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: macos-binaries
     - name: Create Release
