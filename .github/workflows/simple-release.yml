@@ -1,0 +1,32 @@
+name: Simple Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - uses: actions/setup-go@v5
+      with:
+        go-version: '1.21'
+        
+    - name: Build
+      run: |
+        go mod download
+        CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o ga4admin-linux-amd64 ./cmd/ga4admin/main.go
+        CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -o ga4admin-darwin-amd64 ./cmd/ga4admin/main.go
+        
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          ga4admin-linux-amd64
+          ga4admin-darwin-amd64
