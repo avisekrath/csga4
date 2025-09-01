@@ -40,11 +40,17 @@ detect_platform() {
             ARCH="amd64"
             ;;
         arm64|aarch64)
-            ARCH="arm64"
+            if [ "$OS" = "darwin" ]; then
+                ARCH="arm64"
+            else
+                echo -e "${RED}Error: ARM64 Linux not supported${NC}"
+                echo "Supported: macOS (Intel/Apple Silicon), Linux (x86_64 only)"
+                exit 1
+            fi
             ;;
         *)
             echo -e "${RED}Error: Unsupported architecture: $arch${NC}"
-            echo "Supported architectures: x86_64, amd64, arm64, aarch64"
+            echo "Supported architectures: x86_64, amd64, arm64 (macOS only)"
             exit 1
             ;;
     esac

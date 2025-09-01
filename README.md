@@ -39,18 +39,16 @@ Download the appropriate binary for your platform:
 curl -L https://github.com/avisekrath/csga4/releases/latest/download/ga4admin-darwin-amd64 -o ga4admin
 chmod +x ga4admin
 
-# macOS (Apple Silicon)  
+# macOS (Apple Silicon)
 curl -L https://github.com/avisekrath/csga4/releases/latest/download/ga4admin-darwin-arm64 -o ga4admin
 chmod +x ga4admin
 
 # Linux (x86_64)
 curl -L https://github.com/avisekrath/csga4/releases/latest/download/ga4admin-linux-amd64 -o ga4admin
 chmod +x ga4admin
-
-# Linux (ARM64)
-curl -L https://github.com/avisekrath/csga4/releases/latest/download/ga4admin-linux-arm64 -o ga4admin  
-chmod +x ga4admin
 ```
+
+**Note**: ARM64 Linux is not currently supported due to cross-compilation complexity with DuckDB's CGO requirements.
 
 ### Build from Source (Developers)
 
